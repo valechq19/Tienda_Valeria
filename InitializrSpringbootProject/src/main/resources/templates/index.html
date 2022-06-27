@@ -5,7 +5,25 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <div>Saludos</div>
-        <p th:text="${mensaje}"></p>
+        <h1>Un cliente</h1>
+            <div th:if="${clientes !=null and !clientes.empty}">
+          <table border="1">
+               <tr>
+                    <th>Nombre</th>
+                     <th>Apellidos</th>
+                     <th>Correo</th>
+                     <th>Teléfono</th>
+                </tr>
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.nombre}"/>
+                    <td th:text="${cliente.apellidos}"/>
+                    <td th:text="${cliente.correo}"/>
+                    <td th:text="${cliente.telefono}"/>
+                </tr>
+          </table>
+      </div>
+      <div th:if="${clientes == null or clientes.empty}">
+           La lista de clientes está vacía
+       </div>
     </body>
 </html>
