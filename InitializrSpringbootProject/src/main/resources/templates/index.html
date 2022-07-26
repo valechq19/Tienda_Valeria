@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>Un cliente</h1>
-            <div th:if="${clientes !=null and !clientes.empty}">
+            <div th:if="${clientes!=null and!clientes.empty}">
           <table border="1">
                <tr>
                     <th>Nombre</th>
@@ -22,8 +22,9 @@
                 </tr>
           </table>
       </div>
-      <div th:if="${clientes == null or clientes.empty}">
-           La lista de clientes está vacía
+        <div th:if="${clientes == null or clientes.empty}">
+                 No tenemos lista de clientes que mostrar.
+                      
        </div>
     </body>
 </html>
