@@ -5,8 +5,10 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <h1>Un cliente</h1>
-            <div th:if="${clientes!=null and!clientes.empty}">
+        <h1>Listado de Clientes</h1>
+        <a th:href="@{/nuevoCliente}">Nuevo Cliente </a>
+
+            <div th:if="${clientes!=null and !clientes.empty}">
           <table border="1">
                <tr>
                     <th>Nombre</th>
@@ -22,7 +24,7 @@
                 </tr>
           </table>
       </div>
-        <div th:if="${clientes == null or clientes.empty}">
+        <div th:if="${clientes == null or clientes.clientes}">
                  No tenemos lista de clientes que mostrar.
                       
        </div>

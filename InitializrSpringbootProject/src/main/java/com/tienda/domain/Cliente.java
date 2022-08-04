@@ -9,15 +9,17 @@ import lombok.Data;
 @Table(name="cliente")
 public class Cliente implements Serializable{
     private static final long serialVersionUID = 1L;
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
+    
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idcliente;
-    String nombre;
-    String apellidos;
-    String correo;
-    String telefono;
-    public Cliente(){// Cómo se creó el otro
-        // constructor ... el default debe crearse ...
+    private String nombre;
+    private String apellidos;
+    private String correo;
+    private String telefono;
+    public Cliente(){
    }
     public Cliente(String nombre,String apellidos,
             String correo,String telefono){
