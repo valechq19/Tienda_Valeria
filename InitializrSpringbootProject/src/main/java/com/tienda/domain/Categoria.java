@@ -17,11 +17,11 @@ public class Categoria implements Serializable{
     @Column(name="id_categoria")
     private Long idCategoria;
     private String descripcion;
-    private boolean activa;
+    private boolean activo;
     public Categoria(){
    }
     public Categoria(String descripcion, boolean activa){
        this.descripcion = descripcion; 
-       this.activa = activa;
+       this.activo = activa;
 }
     }

@@ -18,7 +18,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     public List<Categoria> getCategorias(boolean activos){
         var lista = (List<Categoria>)clienteDao.findAll();
         
-        if (activos){ lista.removeIf( e -> e.isActiva());}
+        if (activos){ lista.removeIf( e -> !e.isActivo());}
         return lista;
     }
     
@@ -33,8 +33,8 @@ public class CategoriaServiceImpl implements CategoriaService {
         clienteDao.delete(cliente);
     }
      @Transactional(readOnly = true)
-    public Categoria getCategoria(Categoria cliente){
-        return clienteDao.findById(cliente.getIdcliente()).orElse(null);
+    public Categoria getCategorias(Categoria cliente){
+        return clienteDao.findById(cliente.getIdCliente()).orElse(null);
     
 }
 

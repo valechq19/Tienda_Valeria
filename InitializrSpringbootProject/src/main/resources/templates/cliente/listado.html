@@ -27,7 +27,7 @@
                     <td th:text="${cliente.apellidos}"/>
                     <td th:text="${cliente.correo}"/>
                     <td th:text="${cliente.telefono}"/>
-                    <td th:text="${#nombres.formaDecimal(cliente.credito.limite,3,2)}"
+                    <td th:text="${#numbers.formaDecimal(cliente.credito.limite,3,2)}"
                         style="text-align: right"></td>
                         <td><a th:href="@{/liente/eliminar} + ${cliente.idCliente}"> Eliminar</a></td>
                     <td><a th:href="@{/cliente/modificar} + ${cliente.idCliente}"> Modificar</a></td> 

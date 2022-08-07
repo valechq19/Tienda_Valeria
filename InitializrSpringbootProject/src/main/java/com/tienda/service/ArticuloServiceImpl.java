@@ -19,7 +19,7 @@ public class ArticuloServiceImpl implements ArticuloService {
     public List<Articulo> getArticulos(boolean activos){
         var lista = (List<Articulo>)clienteDao.findAll();
         
-        if (activos){ lista.removeIf( e -> e.isActiva());}
+        if (activos){ lista.removeIf( e -> !e.isActivo());}
         return lista;
     }
     
@@ -36,7 +36,7 @@ public class ArticuloServiceImpl implements ArticuloService {
      @Transactional(readOnly = true)
     @Override
     public Articulo getArticulo(Articulo cliente){
-        return clienteDao.findById(cliente.getIdcliente()).orElse(null);
+        return clienteDao.findById(cliente.getIdCliente()).orElse(null);
     
 }
 

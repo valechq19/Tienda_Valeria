@@ -9,7 +9,7 @@
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
         <h2>Listado de Categorias</h2>
-        <a th:href="@{/categorias/nuevo}">Nuevo Cliente </a>
+        <a th:href="@{/categorias/nuevo}">Nueva Categoria </a>
 
             <div th:if="${categorias!=null and !categorias.empty}">
           <table border="1">
@@ -21,18 +21,14 @@
                 </thead>
                 <tr th:each="categoria : ${categorias}">
                     <td th:text="${categoria.descripcion}"/>
-                    <td th:text="${cliente.apellidos}"/>
-                    <td th:text="${cliente.correo}"/>
-                    <td th:text="${cliente.telefono}"/>
-                    <td th:text="${#nombres.formaDecimal(cliente.credito.limite,3,2)}"
-                        style="text-align: right"></td>
-                        <td><a th:href="@{/liente/eliminar} + ${cliente.idCliente}"> Eliminar</a></td>
-                    <td><a th:href="@{/cliente/modificar} + ${cliente.idCliente}"> Modificar</a></td> 
+                    <td><input type="checkbox" name="activo" th:ckecked="${categoria.activo}" disabled="true"></td>
+                    <td><a th:href="@{/categoria/eliminar} + ${categoria.idCategoria}"> Eliminar</a></td>
+                    <td><a th:href="@{/categoria/modificar} + ${categoria.idCategoria}"> Modificar</a></td> 
                 </tr>
           </table>
       </div>
-        <div th:if="${clientes == null or clientes.clientes}">
-                 No tenemos lista de clientes que mostrar.
+        <div th:if="${categorias == null or categorias.empty}">
+                 No tenemos lista de categorias que mostrar.
                       
        </div>
         </div>

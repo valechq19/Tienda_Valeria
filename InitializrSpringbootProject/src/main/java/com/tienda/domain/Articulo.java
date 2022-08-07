@@ -20,7 +20,7 @@ public class Articulo implements Serializable{
     private String descripcion;
     private String detalle;
     private int existencias;
-    private boolean activa;
+    private boolean activo;
     public Articulo(){
    }
 
@@ -29,7 +29,7 @@ public class Articulo implements Serializable{
         this.descripcion = descripcion;
         this.detalle = detalle;
         this.existencias = existencias;
-        this.activa = activa;
+        this.activo = activa;
     }
     
 }

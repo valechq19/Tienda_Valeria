@@ -8,34 +8,24 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-        <h2>Listado de Clientes</h2>
-        <a th:href="@{/cliente/nuevo}">Nuevo Cliente </a>
-
-            <div th:if="${clientes!=null and !clientes.empty}">
+        <h2> th:text="#{index.titulo}">Nuestros Articulos</h2>
+            <div th:if="${articulos!=null and !articulos.empty}">
           <table border="1">
                <tr>
-                    <th>Nombre</th>
-                     <th>Apellidos</th>
-                     <th>Correo</th>
-                     <th>Teléfono</th>
-                     <th>Limite</th>
-                     <th>Eliminar</th>
-                     <th>Modificar</th>
+                    <th  th:text="#{articulo.descripcion}">Descripcion</th>
+                     <th th:text="#{articulo.precio}">Precio</th>
+                     <th  th:text="#{articulo.comprar}">Comprar</th>
+
                 </tr>
-                <tr th:each="cliente : ${clientes}">
-                    <td th:text="${cliente.nombre}"/>
-                    <td th:text="${cliente.apellidos}"/>
-                    <td th:text="${cliente.correo}"/>
-                    <td th:text="${cliente.telefono}"/>
-                    <td th:text="${#nombres.formaDecimal(cliente.credito.limite,3,2)}"
-                        style="text-align: right"></td>
-                        <td><a th:href="@{/liente/eliminar} + ${cliente.idCliente}"> Eliminar</a></td>
-                    <td><a th:href="@{/cliente/modificar} + ${cliente.idCliente}"> Modificar</a></td> 
+                <tr th:each="articulo : ${articulos}">
+                    <td th:text="${articulo.descripcion}"/>
+                    <td th:text="${articulo.precio}"/>
+                    <td><a th:href="@{/carrito/agregar} + ${articulo.idArticulo}" th:text="#{accion.agregar}">Agregar</a></td>
                 </tr>
           </table>
       </div>
-        <div th:if="${clientes == null or clientes.clientes}">
-                 No tenemos lista de clientes que mostrar.
+        <div th:if="${articulos == null or articulos.empty}"th:text="#{articulo.no_mostrar}">
+                 No tenemos lista de articulos que mostrar.
                       
        </div>
         </div>

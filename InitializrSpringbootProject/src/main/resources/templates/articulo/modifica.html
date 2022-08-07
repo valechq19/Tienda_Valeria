@@ -9,17 +9,18 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-        <h2>Datos de Categoria</h2>
-        <a th:href="@{/categoria/listado}">Regresar </a>
+            <h2 th:text="#{articulo.datos}" >Datos de Articulo</h2>
+        <a th:href="@{/articulo/listado}" th:text="#{articulo.regresar}" >Regresar </a>
         <br/>
-        <form th:action="@{/categoria/guardar}"
+        <form th:action="@{/articulo/guardar}"
               method="post"
-              th:pbject="${categoria}">
-            <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/>
-            <label for="descripcion">Descripcion:</label>
+              th:object="${articulo}">
+            <input type="hidden" name="idArticulo" th:field="*{idArticulo}"/>
+            
+            <label for="descripcion" th:text="#{articulo.}" >Descripcion:</label>
             <input type="text" name="descripcion" th:field="*{descripcion}"/>
             <br/>
-           <label for="activa">Activa:</label>
+           <label for="detalle" th:text="#{articulo.}" >Detalle:</label>
            <input type="checkbox" name="activo" th:field="*{activo}"/>
            <br/><br/>
            <input type="submit" name="guardar" value="Guardar"/>
