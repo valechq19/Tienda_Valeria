@@ -17,13 +17,29 @@
               th:object="${articulo}">
             <input type="hidden" name="idArticulo" th:field="*{idArticulo}"/>
             
+            <label for="categoria" th:text="#{articulo.categoria}">Categoria:</label>
+            <select th:field="*{idCategoria}">
+                <option th:each="categoria: ${categorias}"
+                        th:value="${categoria.idCategoria}"
+                        th:text="${categoria.descripcion}">/
+            </select><br/>
+                        
             <label for="descripcion" th:text="#{articulo.}" >Descripcion:</label>
             <input type="text" name="descripcion" th:field="*{descripcion}"/>
-            <br/>
+            
            <label for="detalle" th:text="#{articulo.}" >Detalle:</label>
-           <input type="checkbox" name="activo" th:field="*{activo}"/>
-           <br/><br/>
-           <input type="submit" name="guardar" value="Guardar"/>
+           <textarea name="detalle" th:field="*{detalle}" rows="6" cols="50"/><br>
+           
+           <label for="precio" th:text="#{articulo.precio}" >Precio:</label>
+           <input type="number" name="precio" th:field="*{precio}"/><br/>
+           
+           <label for="existencias" th:text="#{articulo.existencias}" >Existencias:</label>
+           <input type="number" name="existencias" th:field="*{existencias}"/><br/>
+           
+           <label for="activo" th:text="#{articulo.activo}" >Activo:</label>
+           <input type="checkbox" name="activo" th:field="*{activo}"/><br/>
+           
+           <button type="submit" name="guardar" th:text="${accion.guardar}"/>
         </form>
         </div>
         <footer th:replace="layout/plantilla :: footer"/>

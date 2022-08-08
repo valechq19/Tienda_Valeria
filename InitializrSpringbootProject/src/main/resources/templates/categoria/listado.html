@@ -8,27 +8,31 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-        <h2>Listado de Categorias</h2>
-        <a th:href="@{/categorias/nuevo}">Nueva Categoria </a>
+        <h2 th:text="#{categoria.titulo}">Listado de Categorias</h2>
+        <a th:href="@{/categorias/nuevo}"th:text="#{categoria.nuevo}">Nueva Categoria </a>
 
             <div th:if="${categorias!=null and !categorias.empty}">
           <table border="1">
                <tr>
-                    <th>Descripccion</th>
-                     <th>Activa</th>
+                    <th th:text="#{categoria.descripcion}">Descripccion</th>
+                     <th th:text="#{categoria.activo}">Activa</th>
+                     <th th:text="#{categoria.eliminar}">Eliminar</th>
+                     <th th:text="#{categoria.actualizar}">Actualizar</th>
 
                 </tr>
                 </thead>
                 <tr th:each="categoria : ${categorias}">
                     <td th:text="${categoria.descripcion}"/>
                     <td><input type="checkbox" name="activo" th:ckecked="${categoria.activo}" disabled="true"></td>
-                    <td><a th:href="@{/categoria/eliminar} + ${categoria.idCategoria}"> Eliminar</a></td>
-                    <td><a th:href="@{/categoria/modificar} + ${categoria.idCategoria}"> Modificar</a></td> 
+                    <td><a th:href="@{/categoria/eliminar} + ${categoria.idCategoria}"
+                           <th th:text="#{categoria.eliminar}">Eliminar</a></td>
+                    <td><a th:href="@{/categoria/modificar} + ${categoria.idCategoria}"
+                           <th th:text="#{categoria.actualizar}">Modificar</a></td> 
                 </tr>
           </table>
       </div>
         <div th:if="${categorias == null or categorias.empty}">
-                 No tenemos lista de categorias que mostrar.
+               <p <th th:text="#{categoria.no_mostrar}"> No tenemos lista de categorias que mostrar.
                       
        </div>
         </div>
