@@ -36,7 +36,7 @@ public class ArticuloServiceImpl implements ArticuloService {
      @Transactional(readOnly = true)
     @Override
     public Articulo getArticulo(Articulo cliente){
-        return clienteDao.findById(cliente.getIdCliente()).orElse(null);
+        return clienteDao.findById(cliente.getIdArticulo()).orElse(null);
     
 }
 

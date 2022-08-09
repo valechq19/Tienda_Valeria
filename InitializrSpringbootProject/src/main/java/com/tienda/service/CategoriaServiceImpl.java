@@ -33,8 +33,8 @@ public class CategoriaServiceImpl implements CategoriaService {
         clienteDao.delete(cliente);
     }
      @Transactional(readOnly = true)
-    public Categoria getCategorias(Categoria cliente){
-        return clienteDao.findById(cliente.getIdCliente()).orElse(null);
+    public Categoria getCategorias(Categoria categoria){
+        return clienteDao.findById(categoria.getIdCategoria()).orElse(null);
     
 }
 
@@ -45,6 +45,11 @@ public class CategoriaServiceImpl implements CategoriaService {
 
     @Override
     public Categoria getCliente(Categoria cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Categoria getCategoria(Categoria categoria) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     }
